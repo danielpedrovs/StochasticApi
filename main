@@ -1,0 +1,8 @@
+// Assuming you've fetched and processed the stock data
+const stockData = data['Time Series (Daily)'];
+
+const kValue = calculateKValue(stockData);
+const overboughtOversoldStatus = isOverboughtOversold(kValue);
+
+console.log(`K-value: ${kValue.toFixed(2)}`);
+console.log(`Stock Status: ${overboughtOversoldStatus}`);

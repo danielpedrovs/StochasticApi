@@ -1,0 +1,9 @@
+function isOverboughtOversold(kValue) {
+  if (kValue > 80) {
+    return 'Overbought';
+  } else if (kValue < 20) {
+    return 'Oversold';
+  } else {
+    return 'Neutral';
+  }
+}

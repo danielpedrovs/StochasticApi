@@ -1,0 +1,13 @@
+function calculateKValue(stockData, period = 14) {
+  const closingPrices = Object.values(stockData).map(entry => parseFloat(entry['4. close']));
+  const highPrices = Object.values(stockData).map(entry => parseFloat(entry['2. high']));
+  const lowPrices = Object.values(stockData).map(entry => parseFloat(entry['3. low']));
+
+  // Calculate K-value using a formula (e.g., Stochastic Oscillator)
+  const currentClose = closingPrices[closingPrices.length - 1];
+  const lowestLow = Math.min(...lowPrices.slice(-period));
+  const highestHigh = Math.max(...highPrices.slice(-period));
+
+  const kValue = ((currentClose - lowestLow) / (highestHigh - lowestLow)) * 100;
+  return kValue;
+}

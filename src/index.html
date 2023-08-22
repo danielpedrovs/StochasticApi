@@ -1,0 +1,29 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="StockController">
+  <label for="stockHigh">Highest Price:</label>
+  <input type="number" id="stockHigh" ng-model="stockHigh">
+  
+  <label for="stockLow">Lowest Price:</label>
+  <input type="number" id="stockLow" ng-model="stockLow">
+  
+  <label for="currentPrice">Current Price:</label>
+  <input type="number" id="currentPrice" ng-model="currentPrice">
+  
+  <button ng-click="calculate()">Calculate</button>
+  
+  <p>{{ kStockMessage }}</p>
+  <p>{{ statementMessage }}</p>
+</div>
+
+<script src="services/stockServices.js"></script>
+<script src="controllers/stockController.js"></script>
+
+</body>
+</html>

@@ -1,13 +1,9 @@
-function calculateKValue(stockData, period = 14) {
-  const closingPrices = Object.values(stockData).map(entry => parseFloat(entry['4. close']));
-  const highPrices = Object.values(stockData).map(entry => parseFloat(entry['2. high']));
-  const lowPrices = Object.values(stockData).map(entry => parseFloat(entry['3. low']));
+function isOverSold(stockH14P,stockL14P,ClosePrice){
+  const kStock = 100*((ClosePrice-stockL14P)/(stockH14P-stockL14P));
+console.log('the %k  is ' + kStock);
+const sttmentK = kStock < 20 ? "That means stock is oversold and good to buy" :"That means stock is not oversold, check the K if its over 80 you can sell"; 
+console.log(sttmentK);
 
-  // Calculate K-value using a formula (e.g., Stochastic Oscillator)
-  const currentClose = closingPrices[closingPrices.length - 1];
-  const lowestLow = Math.min(...lowPrices.slice(-period));
-  const highestHigh = Math.max(...highPrices.slice(-period));
-
-  const kValue = ((currentClose - lowestLow) / (highestHigh - lowestLow)) * 100;
-  return kValue;
 }
+isOverSold();
+

@@ -1,6 +1,14 @@
-# MyApp
+# StockasticApi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+********In this app we are building one app that will help investors to choose the best option of stocks prior to buy.
+
+The app will get data daily from the best brokers with the best opportunities merging with bloomberg informations and show the best option to buy.
+
+The method has be efficient to buy stocks where the person can leverage their yields in 10% on weekly basis.******
+
+*************virtual image****************
+![image](https://github.com/danielpedrovs/StochasticApi/assets/64491454/78f1285f-60ac-4363-b97d-d868bc9f62a5)
+
 
 ## Development server
 

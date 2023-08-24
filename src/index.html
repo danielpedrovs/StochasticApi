@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- AngularJS (ng-app="myApp") section -->
 <!DOCTYPE html>
 <html ng-app="myApp">
 <head>
@@ -7,22 +7,56 @@
 <body>
 
 <div ng-controller="StockController">
-  <label for="stockHigh">Highest Price:</label>
+  <label for="stockHigh">HIghest Price:</label>
   <input type="number" id="stockHigh" ng-model="stockHigh">
   
-  <label for="stockLow">Lowest Price:</label>
-  <input type="number" id="stockLow" ng-model="stockLow">
-  
-  <label for="currentPrice">Current Price:</label>
-  <input type="number" id="currentPrice" ng-model="currentPrice">
+  <div ng-controller="StockController">
+    <label for="stockLow">Lowest Price:</label>
+    <input type="number" id="stockLow" ng-model="stockLow">
+
+    <div ng-controller="StockController">
+      <label for="closePrice">Close Price:</label>
+      <input type="number" id="closePrice" ng-model="closePrice">
+
+      <div class="stock-calculator">
+        <div class="form-group">
+          <label for="stockHigh">Highest Price:</label>
+          <input type="number" id="stockHigh" [(ngModel)]="stockHigh">
+        </div>
+        <div class="form-group">
+          <label for="stockLow">Lowest Price:</label>
+          <input type="number" id="stockLow" [(ngModel)]="stockLow">
+        </div>
+        <div class="form-group">
+          <label for="closePrice">Close Price:</label>
+          <input type="number" id="closePrice" [(ngModel)]="closePrice">
+        </div>
+        <button (click)="calculate()">Calculate</button>
+        <div class="result">
+          <p class="{{ kStockClass }}">{{ kStockMessage }}</p>
+          <p>{{ statementMessage }}</p>
+        </div>
+      </div>
+      
+
+  <!-- Other input fields and calculations... -->
   
   <button ng-click="calculate()">Calculate</button>
   
   <p>{{ kStockMessage }}</p>
   <p>{{ statementMessage }}</p>
 </div>
+<!-- src/app/app.component.html -->
+<div>
+  <h2>My Angular App</h2>
+  <app-stock-calculator></app-stock-calculator>
+</div>
+
 
 <script src="services/stockServices.js"></script>
+<script src="app/StockCalculatorComponent.ts"></script>
+<script src="app/yahoo-finance.service.ts"></script>
+<script src="app/your-http-client.service.ts"></script>
 <script src="controllers/stockController.js"></script>
 
 </body>

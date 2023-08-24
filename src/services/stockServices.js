@@ -1,9 +1,9 @@
 // StockService.js
 angular.module('myApp.services', [])
   .service('StockService', function() {
-    this.isOverSold = function(stockH14P, stockL14P, ClosePrice) {
-      function isOverSold(stockH14P, stockL14P, ClosePrice) {
-        const kStock = 100 * ((ClosePrice - stockL14P) / (stockH14P - stockL14P));
+    this.isOverSold = function(stockHigh, stockLow, currentPrice) {
+      function isOverSold(stockHigh, stockLow, currentPrice) {
+        const kStock = 100 * ((currentPrice - stockLow) / (stockHigh - stockLow));
         const kStockMessage = 'the %k is ' + kStock;
       
         const sttmentK = kStock < 20
